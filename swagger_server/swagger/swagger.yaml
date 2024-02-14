@@ -28,7 +28,6 @@ paths:
         explode: false
         schema:
           type: string
-          format: uuid
       responses:
         "200":
           description: Successful operation
@@ -55,7 +54,6 @@ paths:
         explode: false
         schema:
           type: string
-          format: uuid
       responses:
         "200":
           description: Successful operation
@@ -75,6 +73,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Student'
+        required: true
       responses:
         "200":
           description: created
@@ -137,4 +136,3 @@ components:
       example:
         grade: 7.5
         subject_name: Mathematics
-
