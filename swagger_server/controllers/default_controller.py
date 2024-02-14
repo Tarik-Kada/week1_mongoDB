@@ -32,7 +32,10 @@ def delete_student(student_id):  # noqa: E501
 
     :rtype: None
     """
-    return delete(student_id)
+    status = delete(student_id)
+    if status == 'not found':
+        return 'Student with given ID not found', 404
+    return 'Student deleted', 200
 
 
 def get_student_by_id(student_id):  # noqa: E501
@@ -45,4 +48,7 @@ def get_student_by_id(student_id):  # noqa: E501
 
     :rtype: Student
     """
-    return get_by_id(student_id)
+    student = get_by_id(student_id)
+    if student == 'not found':
+        return 'Student with given ID not found', 404
+    return Student.from_dict(student)
